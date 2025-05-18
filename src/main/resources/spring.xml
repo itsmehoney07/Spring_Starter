@@ -5,5 +5,35 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- bean definitions here -->
-    <bean id="alien" class="com.learning.Alien.Alien"></bean>
+<!--    used setter injection for injecting the values inside the bean-->
+<!--    <bean id="alien" class="com.learning.Alien.Alien">-->
+<!--        <property name="aid" value="1"/>-->
+<!--        <property name="lap" ref="laptop"/>-->
+<!--    </bean>-->
+<!--    <bean id="laptop" class="com.learning.Laptop.Laptop">-->
+<!--        <property name="ram" value="512"></property>-->
+<!--        <property name="model" value="Pavilion"/>-->
+<!--        <property name="price" value="75000"/>-->
+<!--    </bean>-->
+
+<!--    contructor injection-->
+<!--    it is mainly used whne you want to give the values to bean data members at the time of bean creation-->
+<!--        <bean id="alien" class="com.learning.Alien.Alien">-->
+<!--            <constructor-arg value="1"/>-->
+<!--            <constructor-arg ref="laptop"/>-->
+<!--        </bean>-->
+<!--    there are four ways you can give value to the bean using constructor injection-->
+<!--    first is value , then by ref , another by using index to finding the argument in which you want to store that value, and using name for which you have to
+        use the contructorparameters annotation on the contructor defination to make spring know about the name of the parameters-->
+        <bean id="alien" class="com.learning.Alien.Alien">
+            <constructor-arg name="aid" value="1"/>
+            <constructor-arg name="computer" ref="desktop"/>
+        </bean>
+        <bean id="com" class="com.learning.Laptop.Laptop">
+            <constructor-arg value="512"/>
+            <constructor-arg value="Pavilion"/>
+            <constructor-arg value="75000"/>
+        </bean>
+        <bean id="desktop" class="com.learning.Laptop.Desktop"/>
+
 </beans>
